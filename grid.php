@@ -65,7 +65,7 @@ $(".thumb").click(function () {
 });
 $(window).on('load', function() {
         $('#welcome').modal('show');
-    });
+});
 </script>
 
 
