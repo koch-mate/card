@@ -1,0 +1,34 @@
+.thumb {
+  float: left;
+  position: relative;
+  left:0;
+  top:0;
+  border: 0;
+  background: none;
+  padding: 0;
+  width: 60px;
+  height: 90px;
+  margin: 5px 5px;
+  box-shadow: 2px 5px 5px #999;
+  transition: all 0.3s;
+}
+
+.thumb:hover {
+  left: 2px;
+  top: 2px;
+  box-shadow: 2px 3px 3px #666;
+}
+
+.thumb img {
+  width: 60px;
+  height: 90px;
+}
+
+.big-card {
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px #ccc;
+}
+.big-card img {
+  width: 100%;
+}
