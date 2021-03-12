@@ -38,9 +38,12 @@ $CARDS_NUM = 40;
   <div class="container">
     <div class="row mb-3">
       <div class="col-md-8 ">
-          <?php for($i = 0; $i<$CARDS_NUM; $i++){ ?>
+          <?php
+          $nums = range(1,$CARDS_NUM);
+          shuffle($nums);
+          foreach($nums as $i){ ?>
           <button class="thumb" data-rel="Image<?php printf('%02d', $i+1)?>.jpg">
-            <img src="cards/thumb/Image<?php printf('%02d', $i+1)?>.jpg">
+            <img src="cards/thumb/Image<?php printf('%02d', $i)?>.jpg">
 
           </button>
           <?php } ?>
