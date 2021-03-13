@@ -29,7 +29,6 @@
 .big-card {
   width: 100%;
   cursor: pointer;
-  box-shadow: 5px 5px 5px #ccc;
   border-radius: 40px;
 }
 
@@ -81,7 +80,6 @@
   z-index: 900;
   border:0px;
   background: none;
-  box-shadow: 0 ;
 
   -webkit-transform: rotateY(179deg);
           transform: rotateY(179deg);
@@ -120,9 +118,10 @@
   -webkit-transform: rotateX(0) rotateY(0);
           transform: rotateX(0) rotateY(0);
 
-  box-shadow: 0 ;
 }
 
-/* -- cosmetics -- */
-.panel .pad { }
+.panel .pad {
+  box-shadow: 5px 5px 5px #ccc;
+  border-radius: 40px;
+}
 .panel.flip .action {display: none; }
