@@ -24,9 +24,14 @@ $CARDS_NUM = 40;
     <link href="grid.css" rel="stylesheet">
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
   </head>
 
   <body class="py-4">
+    <script>
+      // For IE11. May we one day live without your BS.
+      Modernizr.addTest('preserve3d', function(){return Modernizr.testAllProps('transformStyle', 'preserve-3d');});
+    </script>
 
 <main>
   <div id="welcome" class="modal" tabindex="-1">
@@ -60,7 +65,18 @@ $CARDS_NUM = 40;
       </div>
       <div class="col-md-4 ">
         <div class="big-card" id="big-card">
-          <img src="cards/cover.jpg">
+          <div class="hover panel">
+            <div class="front">
+              <div class="pad">
+                <img src="cards/cover.jpg">
+              </div>
+            </div>
+            <div class="back">
+              <div class="pad" id="big-card-back">
+                <img src="cards/cover.jpg"/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -69,23 +85,18 @@ $CARDS_NUM = 40;
 <script>
   $(".thumb").click(function () {
       var imgUrl = $(this).data('rel');
-      $("#big-card").html("<img src='cards/big/" + imgUrl + "'  />");
-      $(['cards/big-back/' + imgUrl]).preload();
-      $("#big-card").click({imgUrl : imgUrl}, flipCard);
-      function flipCard(event) {
-          $("#big-card").html("<img src='cards/big-back/" + event.data.imgUrl + "'  />");
-        }
-  });
-
-  $(window).on('load', function() {
-      $('#welcome').modal('show');
-  });
-
-  $.fn.preload = function() {
-    this.each(function(){
-        $('<img/>')[0].src = this;
+      $("#big-card").html('<div class="hover panel"><div class="front"><div class="pad"><img src="cards/big/' + imgUrl + '"></div></div><div class="back"><div class="pad" id="big-card-back"><img src="cards/big-back/' + imgUrl + '"/></div></div></div>');
+      $('.hover').click(function(){
+        $(this).addClass('flip');
+      });
     });
-  }
+
+  $(document).ready(function(){
+    $('#welcome').modal('show');
+    $('.hover').click(function(){
+      $(this).addClass('flip');
+    });
+  });
 </script>
 
 
