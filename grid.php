@@ -53,7 +53,7 @@ $CARDS_NUM = 40;
           $nums = range(1,$CARDS_NUM);
           shuffle($nums);
           foreach($nums as $i){ ?>
-          <button class="thumb" data-rel="Image<?php printf('%02d', $i+1)?>.jpg">
+          <button class="thumb" data-rel="Image<?php printf('%02d', $i)?>.jpg">
             <img src="cards/thumb/Image<?php printf('%02d', $i)?>.jpg">
           </button>
           <?php } ?>
@@ -70,14 +70,22 @@ $CARDS_NUM = 40;
   $(".thumb").click(function () {
       var imgUrl = $(this).data('rel');
       $("#big-card").html("<img src='cards/big/" + imgUrl + "'  />");
+      $(['cards/big-back/' + imgUrl]).preload();
       $("#big-card").click({imgUrl : imgUrl}, flipCard);
       function flipCard(event) {
           $("#big-card").html("<img src='cards/big-back/" + event.data.imgUrl + "'  />");
         }
   });
+
   $(window).on('load', function() {
       $('#welcome').modal('show');
   });
+
+  $.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+  }
 </script>
 
 
