@@ -11,6 +11,7 @@
   margin: 5px 5px;
   box-shadow: 2px 5px 5px #999;
   transition: all 0.3s;
+  border-radius: 10px;
 }
 
 .thumb:hover {
@@ -22,13 +23,16 @@
 .thumb img {
   width: 60px;
   height: 90px;
+  border-radius: 10px;
 }
 
 .big-card {
   width: 100%;
   cursor: pointer;
   box-shadow: 5px 5px 5px #ccc;
+  border-radius: 40px;
 }
 .big-card img {
   width: 100%;
+  border-radius: 40px;
 }
