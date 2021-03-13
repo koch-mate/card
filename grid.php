@@ -85,9 +85,11 @@ $CARDS_NUM = 40;
 <script>
   $(".thumb").click(function () {
       var imgUrl = $(this).data('rel');
+      var thumb = this;
       $("#big-card").html('<div class="hover panel"><div class="front"><div class="pad"><img src="cards/big/' + imgUrl + '"></div></div><div class="back"><div class="pad" id="big-card-back"><img src="cards/big-back/' + imgUrl + '"/></div></div></div>');
       $('.hover').click(function(){
         $(this).addClass('flip');
+        $(thumb).html('<img src="cards/big-back/'+imgUrl+'">');
       });
     });
 
